@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
 		return EXIT_FAILURE;
 	}
 	if ((pid1 = fork()) == 0) {                 // Creates child by calling fork()
-		char* cmd1[] = {argv[1], 0};            // Creates command from argv[1] and a 0
+		char* cmd1[] = {argv[1], NULL};         // Creates command from argv[1] and a 0
 		dup2(fd[WRITE], WRITE);                 // Creates new fd, assigns number, closes old
 		close(fd[READ]);
 		close(fd[WRITE]);
@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
 
 	// Forks second process and runs a command line argument
 	if ((pid2 = fork()) == 0) {                 // Creates child by calling fork()
-		char* cmd2[] = {argv[2], 0};            // Creates command from argv[2] and a 0
+		char* cmd2[] = {argv[2], NULL};         // Creates command from argv[2] and a 0
 		dup2(fd[READ], READ);                   // Creates new fd, assigns number, closes old
 		close(fd[WRITE]);
 		close(fd[READ]);
