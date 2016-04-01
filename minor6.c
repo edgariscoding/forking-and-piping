@@ -14,15 +14,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
-#include <sys/types.h>
 
 #define READ  0
 #define WRITE 1
 
 int main(int argc, char* argv[]) {
 	// Initializes file descriptor and two process ID variables
-	int fd[2];
-	pid_t pid1, pid2;
+	int fd[2], pid1, pid2;
 
 	// Verifies number of arguments provided
 	if (argc != 3) {
